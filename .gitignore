@@ -5,6 +5,7 @@
 
 # Idea files #
 webapp/.idea/*
+webapp/*/target/*
 *.class
 *.iml
 

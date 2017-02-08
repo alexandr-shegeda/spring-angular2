@@ -1,9 +1,0 @@
-com/shegeda/webapp/service/AppService.class
-com/shegeda/webapp/service/PublisherService.class
-com/shegeda/webapp/service/impl/AdOpsServiceImpl.class
-com/shegeda/webapp/service/impl/PublisherServiceImpl.class
-com/shegeda/webapp/service/BasicService.class
-com/shegeda/webapp/service/impl/AppServiceImpl.class
-com/shegeda/webapp/service/AdOpsService.class
-com/shegeda/webapp/service/config/ServiceConfig.class
-com/shegeda/webapp/service/impl/AuthUserServiceImpl.class

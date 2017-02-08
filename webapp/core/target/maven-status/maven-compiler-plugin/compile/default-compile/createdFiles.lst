@@ -1,9 +1,0 @@
-com/shegeda/webapp/core/entity/app/User.class
-com/shegeda/webapp/core/entity/app/App.class
-com/shegeda/webapp/core/entity/app/AppType.class
-com/shegeda/webapp/core/entity/app/QUser.class
-com/shegeda/webapp/core/entity/app/User_.class
-com/shegeda/webapp/core/entity/app/App_.class
-com/shegeda/webapp/core/entity/app/UserRole.class
-com/shegeda/webapp/core/entity/app/ContentType.class
-com/shegeda/webapp/core/entity/app/QApp.class
