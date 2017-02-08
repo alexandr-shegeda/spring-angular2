@@ -1,0 +1,13 @@
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Idea files #
+webapp/.idea/*
+*.class
+*.iml
+
+.DS_Store
+
+front/node_modules/*
