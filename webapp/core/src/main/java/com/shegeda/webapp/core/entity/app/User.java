@@ -21,6 +21,7 @@ import javax.persistence.Table;
 @Table(name = "users")
 @SecondaryTable(name = "user_details")
 public class User implements Serializable {
+  
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "user_id")

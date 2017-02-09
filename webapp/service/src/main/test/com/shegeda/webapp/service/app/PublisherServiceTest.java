@@ -63,24 +63,8 @@ public class PublisherServiceTest {
 
   @Test
   public void testSelectAdOps() {
-//    char[] def = {'1', '1', '1'};
-//
-//    for (int i = 0; i < 5; i++) {
-//      adOpsService.create(new User(String.format("User%d", i), String.format("user%d@yopmail.com", i), PUBLISHER, def));
-//    }
-//
-//    for (int i = 5; i < 10; i++) {
-//      adOpsService.create(new User(String.format("User%d", i), String.format("user%d@yopmail.com", i), ADMIN, def));
-//    }
-//
-//    for (int i = 10; i < 20; i++) {
-//      adOpsService.create(new User(String.format("User%d", i), String.format("user%d@yopmail.com", i), ADOPS, def));
-//    }
-//
-//    for (int i = 20; i < 25; i++) {
-//      adOpsService.create(new User(String.format("User%d", i), String.format("user%d@yopmail.com", i), PUBLISHER, def));
-//    }
-
+//    createUsers();
+    
     PageRequest requestFirstTen = new PageRequest(1, 10);
     Page<User> firstTenOperators = adOpsService.findAllOperators(requestFirstTen);
     System.out.println(firstTenOperators.getSize());
@@ -90,6 +74,26 @@ public class PublisherServiceTest {
     List<User> content = firstTenOperators.getContent();
     System.out.println(content);
 
+  }
+
+  private void createUsers() {
+    char[] def = {'1', '1', '1'};
+
+    for (int i = 0; i < 5; i++) {
+      adOpsService.create(new User(String.format("User%d", i), String.format("user%d@yopmail.com", i), PUBLISHER, def));
+    }
+
+    for (int i = 5; i < 10; i++) {
+      adOpsService.create(new User(String.format("User%d", i), String.format("user%d@yopmail.com", i), ADMIN, def));
+    }
+
+    for (int i = 10; i < 20; i++) {
+      adOpsService.create(new User(String.format("User%d", i), String.format("user%d@yopmail.com", i), ADOPS, def));
+    }
+
+    for (int i = 20; i < 25; i++) {
+      adOpsService.create(new User(String.format("User%d", i), String.format("user%d@yopmail.com", i), PUBLISHER, def));
+    }
   }
 
   public UserDTO converter(User user) {
