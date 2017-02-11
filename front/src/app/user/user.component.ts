@@ -10,7 +10,7 @@ import {showLoading, hideLoading, doNothing} from '../commons'
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css', '../bootstrap.min.css']
 })
 export class UserComponent implements OnInit {
 

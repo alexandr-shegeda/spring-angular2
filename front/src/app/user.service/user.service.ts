@@ -40,11 +40,11 @@ export class UserService {
   }
 
   getUser(id: number): Rx.Observable<User> {
-    return this.http.get(`${webServiceEndpoint}/operator/${id}`).map(this.extractData).publish().refCount();
+    return this.http.get(`${webServiceEndpoint}/operator/edit/${id}`).map(this.extractData).publish().refCount();
   }
 
   deleteUser(id: number): Rx.Observable<Response> {
-    return this.http.delete(`${webServiceEndpoint}/operator/${id}`).publish().refCount();
+    return this.http.delete(`${webServiceEndpoint}/operator/delete/${id}`).publish().refCount();
   }
 
   private extractData(res: Response) {

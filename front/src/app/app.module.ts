@@ -14,7 +14,8 @@ import {UserService} from './user.service/user.service';
 
 const appRoutes: Routes = [
   // {path: 'operator/edit/:id', component: UserComponent},
-  { path: 'operator', component: UserListComponent}
+  { path: 'main', component: UserListComponent},
+  { path: 'operator/edit/:id', component: UserComponent}
 ];
 
 @NgModule({

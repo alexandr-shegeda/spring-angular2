@@ -13,7 +13,7 @@ import {User} from "../user/user";
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  styleUrls: ['./user-list.component.css', '../bootstrap.min.css']
 })
 export class UserListComponent implements OnInit, Table<User> {
 
@@ -39,7 +39,7 @@ export class UserListComponent implements OnInit, Table<User> {
 
   goToDetails(user) {
     console.log(user);
-    this.router.navigate(['user', user.id]);
+    this.router.navigate(['operator/edit', user.id]);
   }
 
   delete(user) {
