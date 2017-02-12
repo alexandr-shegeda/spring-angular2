@@ -9,14 +9,14 @@
 
 <menu>
 
-  <c:if test="${role == 'ROLE_ADMIN' || role == 'ROLE_ADOPS'}">
+  <c:if test="${role == 'ROLE_ADMIN'}">
     <p><a href="${pageContext.request.contextPath}/operator">Operators menu</a></p>
   </c:if>
   <c:if test="${role == 'ROLE_ADMIN' || role == 'ROLE_ADOPS'}">
     <p><a href="${pageContext.request.contextPath}/publisher">Publisher menu</a></p>
   </c:if>
-  <c:if test="${role == 'ROLE_ADMIN' || role == 'ROLE_ADOPS' || role == 'ROLE_PUBLISHER'}">
-    <p><a href="${pageContext.request.contextPath}/app">Apps menu</a></p>
+  <c:if test="${role == 'ROLE_ADOPS' || role == 'ROLE_PUBLISHER'}">
+    <p><a href="${pageContext.request.contextPath}/app">App menu</a></p>
   </c:if>
 
   <p><a href="${pageContext.request.contextPath}/login">Login</a></p>

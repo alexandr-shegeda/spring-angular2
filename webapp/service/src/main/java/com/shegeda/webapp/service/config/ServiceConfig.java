@@ -7,5 +7,5 @@ import org.springframework.context.annotation.Configuration;
  * @author Alexandr Shegeda
  */
 @Configuration
-@ComponentScan(basePackages = "com.shegeda.webapp")
+@ComponentScan(basePackages = "com.shegeda.webapp.*")
 public class ServiceConfig { }

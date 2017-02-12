@@ -1,4 +1,4 @@
-package com.shegeda.webapp.web.dto;
+package com.shegeda.webapp.core.entity.dto;
 
 import com.shegeda.webapp.core.entity.app.User;
 

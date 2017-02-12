@@ -1,7 +1,7 @@
 package com.shegeda.webapp.web;
 
 import com.shegeda.webapp.core.entity.app.User;
-import com.shegeda.webapp.web.dto.UserDTO;
+import com.shegeda.webapp.core.entity.dto.UserDTO;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -24,8 +24,9 @@ public class RestUtils {
     return encoded;
   }
 
-  public static void convertFromDTO(User user, UserDTO dto) {
+  public static User convertFromDTO(User user, UserDTO dto) {
     user.setName(dto.getName());
     user.setEmail(dto.getEmail());
+    return user;
   }
 }

@@ -24,6 +24,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -77,7 +79,8 @@ public class PublisherServiceTest {
   }
 
   private void createUsers() {
-    char[] def = {'1', '1', '1'};
+    PasswordEncoder encoder = new BCryptPasswordEncoder();
+    char[] def = encoder.encode("111").toCharArray();
 
     for (int i = 0; i < 5; i++) {
       adOpsService.create(new User(String.format("User%d", i), String.format("user%d@yopmail.com", i), PUBLISHER, def));

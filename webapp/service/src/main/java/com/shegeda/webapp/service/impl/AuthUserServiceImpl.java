@@ -3,6 +3,8 @@ package com.shegeda.webapp.service.impl;
 import com.shegeda.webapp.core.entity.app.UserRole;
 import com.shegeda.webapp.dao.app.AuthUserDao;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -36,13 +38,10 @@ public class AuthUserServiceImpl implements UserDetailsService {
   }
 
   private User buildUserForAuthentication(com.shegeda.webapp.core.entity.app.User user, List<GrantedAuthority> authorities) {
-    return new User(user.getName(), new String(user.getPassword()), true, true, true, true, authorities);
+    return new User(user.getName(), new String(user.getPassword()), authorities);
   }
 
   private List<GrantedAuthority> buildUserAuthority(UserRole role) {
-    Set<GrantedAuthority> setAuths = new HashSet<>();
-    // Build user's authorities
-    setAuths.add(new SimpleGrantedAuthority(role.name()));
-    return new ArrayList<>(setAuths);
+    return Collections.singletonList(new SimpleGrantedAuthority(role.getRole()));
   }
 }

@@ -36,28 +36,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
-        .antMatchers("/admin/**")
-        .access(String.format("hasRole('%s')", ADMIN))
-        .antMatchers("/operator/**")
-        .access(String.format("hasRole('%s') or hasRole('%s') or hasRole('ROLE_ANONYMOUS')", ADMIN, ADOPS))
-        .antMatchers("/publisher/**")
-        .access(String.format("hasRole('%s') or hasRole('%s') or hasRole('%s')", ADMIN, ADOPS, PUBLISHER))
+          .antMatchers("/welcome/**", "/").permitAll()
+          .antMatchers("/operator/**").access(String.format("hasRole('%s')", ADMIN))
+          .antMatchers("/publisher/**").access(String.format("hasRole('%s') or hasRole('%s')", ADMIN, ADOPS))
+          .antMatchers("/app/**").access(String.format("hasRole('%s') or hasRole('%s')", ADOPS, PUBLISHER))
         .and()
         .formLogin()
-        .loginPage("/login")
-        .failureUrl("/login?error")
-        .usernameParameter("username")
-        .passwordParameter("password")
-        .permitAll()
+          .loginPage("/login")
+          .failureUrl("/login?error")
+          .usernameParameter("username")
+          .passwordParameter("password")
+          .successForwardUrl("/auth/login")
+          .permitAll()
         .and()
-        .logout()
-        .logoutUrl("/logout")
-        .logoutSuccessUrl("/")
-        .permitAll()
+          .logout()
+          .logoutUrl("/logout")
+          .logoutSuccessUrl("/")
+          .permitAll()
         .and()
-        .sessionManagement()
-        .maximumSessions(5);
-    //    http.csrf().disable();
+          .sessionManagement()
+          .maximumSessions(5);
   }
 
   @Bean

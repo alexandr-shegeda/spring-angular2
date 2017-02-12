@@ -47,7 +47,7 @@
   <h2>Login with Username and Password</h2>
 
   <c:url value="/login" var="loginUrl"/>
-  <form action="${loginUrl}" method="post">
+  <form name="loginForm" action="${loginUrl}" method="post">
     <c:if test="${param.error != null}">
       <p>
         Invalid username and password.

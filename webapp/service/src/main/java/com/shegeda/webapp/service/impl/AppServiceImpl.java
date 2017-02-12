@@ -38,8 +38,8 @@ public class AppServiceImpl implements AppService {
   }
 
   @Override
-  public void deleteById(final Integer entityId) {
-    //todo implements
+  public void deleteById(final Integer appId) {
+    appDao.delete(appId);
   }
 
   @Override

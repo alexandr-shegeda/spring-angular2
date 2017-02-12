@@ -24,7 +24,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @Configuration
 @EnableSpringDataWebSupport
-@ComponentScan(basePackages = "com.shegeda.webapp")
+@ComponentScan(basePackages = "com.shegeda.webapp.*")
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
   @Override
