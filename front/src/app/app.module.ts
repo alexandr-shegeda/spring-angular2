@@ -11,11 +11,17 @@ import {TableElementsCountComponent} from './user.table/counter/table-elements-c
 import {TablePaginationComponent} from './user.table/pagination/table-pagination.component';
 import {TableSortComponent} from "./user.table/sort/table-sort.component";
 import {UserService} from './user.service/user.service';
+import { AppListComponent } from './app.list/app-list.component';
+import { PublisherListComponent } from './publisher.list/publisher-list.component';
+import { WelcomePageComponent } from './welcome.page/welcome-page.component';
+import { RegistrationPageComponent } from './registration.page/registration-page.component';
 
 const appRoutes: Routes = [
   // {path: 'operator/edit/:id', component: UserComponent},
   { path: 'main', component: UserListComponent},
-  { path: 'operator/edit/:id', component: UserComponent}
+  { path: 'operator/edit/:id', component: UserComponent},
+  { path: 'welcome', component: WelcomePageComponent},
+  { path: 'register', component: RegistrationPageComponent}
 ];
 
 @NgModule({
@@ -25,7 +31,11 @@ const appRoutes: Routes = [
     UserListComponent,
     TableElementsCountComponent,
     TablePaginationComponent,
-    TableSortComponent
+    TableSortComponent,
+    AppListComponent,
+    PublisherListComponent,
+    WelcomePageComponent,
+    RegistrationPageComponent
   ],
   imports: [
     BrowserModule,

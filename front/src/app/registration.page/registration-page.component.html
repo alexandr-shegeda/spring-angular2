@@ -1,0 +1,11 @@
+<p>
+  registration-page works!
+</p>
+
+<div>
+  <input name="userName" type="text" [(ngModel)]="user.name" placeholder="Enter user name">
+  <input name="email" type="text" [(ngModel)]="user.email" placeholder="Enter user email">
+  <input name="password" type="password" [(ngModel)]="user.password" placeholder="Enter user password">
+  <button (click)="register(user)">Register</button>
+  <button (click)="back()">Back</button>
+</div>
