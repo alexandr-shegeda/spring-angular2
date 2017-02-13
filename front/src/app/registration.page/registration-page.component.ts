@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {User} from '../user/user';
-import { FormGroup, FormControl } from '@angular/forms';
+import {Component, OnInit} from "@angular/core";
+import {UserService} from "../user.service/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-registration-page',
@@ -9,25 +9,34 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class RegistrationPageComponent implements OnInit {
 
-  user = {
-    name: "",
-    email: "",
-    password: ""
-  };
+  model: any = {};
+  protected errorMessage: string;
 
-  constructor() {
+  constructor(private userService: UserService, private router: Router) {
 
   }
 
   ngOnInit() {
   }
 
-  register(user) {
-    console.log(user);
-  }
+  register() {
+    this.errorMessage = null;
+    this.userService.register(this.model).subscribe(
+      data => {
+        console.log(data);
+        this.router.navigate(['/login']);
+      },
+      error => {
+        console.log(error);
+        let response = error.json();
+        console.log(response);
+        this.errorMessage = response;
 
-  back() {
-    history.back();
+        setTimeout(function () {
+          this.errorMessage = null;
+        }.bind(this), 3000);
+      }
+    );
   }
 
 }

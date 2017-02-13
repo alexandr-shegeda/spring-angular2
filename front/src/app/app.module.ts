@@ -15,13 +15,15 @@ import { AppListComponent } from './app.list/app-list.component';
 import { PublisherListComponent } from './publisher.list/publisher-list.component';
 import { WelcomePageComponent } from './welcome.page/welcome-page.component';
 import { RegistrationPageComponent } from './registration.page/registration-page.component';
+import {LoginPageComponent} from "./login.page/login-page.component";
 
 const appRoutes: Routes = [
   // {path: 'operator/edit/:id', component: UserComponent},
   { path: 'main', component: UserListComponent},
   { path: 'operator/edit/:id', component: UserComponent},
   { path: 'welcome', component: WelcomePageComponent},
-  { path: 'register', component: RegistrationPageComponent}
+  { path: 'register', component: RegistrationPageComponent},
+  { path: 'login', component: LoginPageComponent}
 ];
 
 @NgModule({
@@ -35,6 +37,7 @@ const appRoutes: Routes = [
     AppListComponent,
     PublisherListComponent,
     WelcomePageComponent,
+    LoginPageComponent,
     RegistrationPageComponent
   ],
   imports: [

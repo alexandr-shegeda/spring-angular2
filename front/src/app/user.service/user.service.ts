@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {User} from '../user/user'
 import {PaginationPage, PaginationPropertySort} from '../user.table/pagination';
 import {webServiceEndpoint} from '../commons';
-import {Http, Response, URLSearchParams, RequestOptions} from '@angular/http';
+import {Http, Response, URLSearchParams, RequestOptions, Headers} from '@angular/http';
 import * as Rx from "rxjs/Rx";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/publish';
@@ -12,6 +12,28 @@ export class UserService {
 
   constructor(private http: Http) {
 
+  }
+
+  register(user): Rx.Observable<Response> {
+    // let headers = new Headers();
+    // headers.append("Access-Control-Allow-Origin", "*");
+    // headers.append("Content-Type", "application/json");
+    //
+    // let options = new RequestOptions(
+    //   {headers: headers}
+    // );
+
+    return this.http.post(`${webServiceEndpoint}/register`, user).map((response: Response) => response.json());
+  }
+
+  login(user): Rx.Observable<Response> {
+    // let headers = new Headers();
+    // headers.append("Access-Control-Allow-Origin", "*");
+    //
+    // let options = new RequestOptions(
+    //   {headers}
+    // );
+    return this.http.post(`${webServiceEndpoint}/login`, user).map((response: Response) => response.json());
   }
 
   findUser(page: number, pageSize: number, sort: PaginationPropertySort): Rx.Observable<PaginationPage<User>> {
