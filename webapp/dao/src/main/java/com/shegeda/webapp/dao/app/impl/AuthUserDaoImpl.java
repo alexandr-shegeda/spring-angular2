@@ -25,7 +25,16 @@ public class AuthUserDaoImpl extends AbstractHibernateDAO<User> implements AuthU
     return findOne(byUserName(username));
   }
 
+  @Override
+  public User findByEmail(final String email) {
+    return findOne(byEmail(email));
+  }
+
   private static Specification<User> byUserName(String userName) {
     return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.equal(root.get(User_.name), userName);
+  }
+
+  private static Specification<User> byEmail(String email) {
+    return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.equal(root.get(User_.email), email);
   }
 }

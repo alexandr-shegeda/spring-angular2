@@ -81,6 +81,11 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
+  public User findUserByEmail(final String email) {
+    return userDao.findUserByEmail(email);
+  }
+
+  @Override
   public boolean createPublisher(final User user) {
     User existingUser = userDao.findUserByEmail(user.getEmail());
     if(existingUser != null) return false;

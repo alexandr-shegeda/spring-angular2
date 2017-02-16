@@ -28,9 +28,11 @@ export class LoginPageComponent implements OnInit {
     this.userService.login(this.model)
       .subscribe(
         data => {
+          console.log(data);
           this.router.navigate([this.returnUrl]);
         },
         error => {
+          console.log(error);
           this.loading = false;
         });
   }

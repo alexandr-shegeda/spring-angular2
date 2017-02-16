@@ -31,8 +31,8 @@ public class AuthUserServiceImpl implements UserDetailsService {
 
   @Transactional(readOnly = true)
   @Override
-  public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
-    com.shegeda.webapp.core.entity.app.User user = authUserDao.findByUserName(username);
+  public UserDetails loadUserByUsername(final String email) throws UsernameNotFoundException {
+    com.shegeda.webapp.core.entity.app.User user = authUserDao.findByEmail(email);
     List<GrantedAuthority> authorities = buildUserAuthority(user.getRole());
     return buildUserForAuthentication(user, authorities);
   }

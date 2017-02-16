@@ -1,17 +1,17 @@
 <menu>
-  <p *ngIf="role == 'ROLE_ADMIN'">
-    <a href="/operator">Operators menu</a>
-  </p>
+  <div *ngIf="role == 'ROLE_ADMIN'">
+    <h2 (click)="goToUrl('operator')" >Operators menu</h2>
+  </div>
 
-  <p *ngIf="role == 'ROLE_ADMIN' || role == 'ROLE_ADOPS'">
-    <a href="/publisher">Publisher menu</a>
-  </p>
+  <div *ngIf="role == 'ROLE_ADMIN' || role == 'ROLE_ADOPS'">
+    <h2 (click)="goToUrl('publisher')" >Publisher menu</h2>
+  </div>
 
-  <p *ngIf="role == 'ROLE_ADOPS' || role == 'ROLE_PUBLISHER'">
-    <a href="/app">Apps menu</a>
-  </p>
+  <div *ngIf="role == 'ROLE_ADOPS' || role == 'ROLE_PUBLISHER'">
+    <h2 (click)="goToUrl('app')" >Apps menu</h2>
+  </div>
 
-  <p *ngIf="user == null"><a href="/login">Login</a></p>
-  <p *ngIf="user == null"><a href="/register">Registration</a></p>
-  <p *ngIf="user != null"><a href="/logout">Logout</a></p>
+  <div *ngIf="user == null"><h2 (click)="goToUrl('login')" >Login</h2></div>
+  <div *ngIf="user == null"><h2 (click)="goToUrl('register')" >Registration</h2></div>
+  <div *ngIf="user != null"><h2 (click)="goToUrl('logout')" >Logout</h2></div>
 </menu>

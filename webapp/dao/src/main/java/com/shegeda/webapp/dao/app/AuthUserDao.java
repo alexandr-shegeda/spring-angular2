@@ -10,4 +10,6 @@ import org.springframework.data.repository.NoRepositoryBean;
 public interface AuthUserDao {
 
   User findByUserName(final String username);
+
+  User findByEmail(final String email);
 }

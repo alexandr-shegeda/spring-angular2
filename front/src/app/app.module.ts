@@ -18,10 +18,9 @@ import { RegistrationPageComponent } from './registration.page/registration-page
 import {LoginPageComponent} from "./login.page/login-page.component";
 
 const appRoutes: Routes = [
-  // {path: 'operator/edit/:id', component: UserComponent},
-  { path: 'main', component: UserListComponent},
+  { path: '', component: WelcomePageComponent},
+  { path: 'publisher', component: UserListComponent},
   { path: 'operator/edit/:id', component: UserComponent},
-  { path: 'welcome', component: WelcomePageComponent},
   { path: 'register', component: RegistrationPageComponent},
   { path: 'login', component: LoginPageComponent}
 ];

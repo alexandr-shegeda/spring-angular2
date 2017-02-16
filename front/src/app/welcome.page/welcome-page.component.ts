@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../user/user";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-welcome-page',
@@ -12,9 +13,17 @@ export class WelcomePageComponent implements OnInit {
 
   role = 'ROLE_ANONYMOUS';
 
-  constructor() {}
+  router: Router;
+
+  constructor(router: Router) {
+    this.router = router;
+  }
 
   ngOnInit() {
+  }
+
+  goToUrl(url) {
+    this.router.navigate([url]);
   }
 
 }

@@ -19,5 +19,7 @@ public interface UserService {
 
   User findUserByUserName(String userName);
 
+  User findUserByEmail(String email);
+
   boolean createPublisher(User user);
 }

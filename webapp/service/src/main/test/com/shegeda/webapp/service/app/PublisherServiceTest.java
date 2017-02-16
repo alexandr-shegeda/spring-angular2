@@ -10,18 +10,16 @@ import com.shegeda.webapp.core.entity.app.AppType;
 import com.shegeda.webapp.core.entity.app.ContentType;
 import com.shegeda.webapp.core.entity.app.User;
 import com.shegeda.webapp.core.entity.app.UserRole;
-import com.shegeda.webapp.dao.app.AdOpsDao;
 import com.shegeda.webapp.service.AdOpsService;
 import com.shegeda.webapp.service.AppService;
 import com.shegeda.webapp.service.PublisherService;
+import com.shegeda.webapp.service.UserService;
 import com.shegeda.webapp.service.config.ServiceConfig;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -29,13 +27,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.context.WebApplicationContext;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 
 /**
  * @author Alexandr Shegeda
@@ -51,6 +45,9 @@ public class PublisherServiceTest {
 
   @Autowired
   private AppService appService;
+
+  @Autowired
+  private UserService userService;
 
 //  @Autowired
 //  private WebApplicationContext webApplicationContext;
@@ -158,6 +155,14 @@ public class PublisherServiceTest {
 //           .andExpect(jsonPath("$.uri", is("http://bookmark.com/1/" + userName)))
 //           .andExpect(jsonPath("$.description", is("A description")));
 //  }
+
+
+  @Test
+  public void findUserByNameTest() {
+    String email = "publisher1@yopmail.com";
+    User userByUserName = userService.findUserByEmail(email);
+    assertThat(userByUserName, notNullValue());
+  }
 
 
 
